@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="base :: head(~{::title})">
+    <title>Главная</title>
+</head>
+<body>
+<header th:fragment="header">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btn-id').on('click', function() { window.location = '/missile/get/' + $('#id').val(); });
+            $('#btn-name').on('click', function() { window.location = '/missile/name/' + $('#name').val(); });
+            $('#btn-code').on('click', function() { window.location = '/missile/code/' + $('#code').val(); });
+        });
+    </script>
+    <style>
+        .inline {
+            display: inline;
+        }
+        .w70 {
+            width: 70px;
+        }
+        .w200 {
+            width: 200px;
+        }
+        .m10 {
+            margin: 10px;
+        }
+    </style>
+    <nav>
+        <a href="/" class="m10 btn btn-primary">Главная</a>
+        <a href="/missile/add" class="m10 btn btn-primary">Добавить ракету</a>
+        <form action="/missile/get" method="get" class="inline m10">
+            <input type="number" id="id" name="id" placeholder="ID" class="w70"/>
+            <a href="#" id="btn-id" class="btn btn-primary">Найти</a>
+        </form>
+        <form action="/missile/name" method="get" class="inline m10">
+            <input type="text" id="name" name="name" placeholder="комплекс" class="w200"/>
+            <a href="#" id="btn-name" class="btn btn-primary">Найти</a>
+        </form>
+        <form action="/missile/code" method="get" class="inline m10">
+            <input type="text" id="code" name="code" placeholder="ракета" class="w200"/>
+            <a href="#" id="btn-code" class="btn btn-primary">Найти</a>
+        </form>
+
+    </nav>
+</header>
+</body>
+</html>

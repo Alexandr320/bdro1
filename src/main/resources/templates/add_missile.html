@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление ракеты</title>
+</head>
+<body>
+<th:block th:insert="index::header"></th:block>
+<h3 align="center">Добавление ракеты</h3>
+
+<form method="post" th:action="@{/missile/add}" th:object="${missileForm}">
+<table>
+    <tbody align="center">
+
+    <tr> <!--1-я строка, 3 пункта-->
+        <td>Название комплекса:<br>  <!--Название комплекса-->
+            <input type="text" placeholder="Название комплекса" th:field="*{missileName}">
+        </td>
+        <td>Название ракеты:<br>     <!--Название ракеты-->
+            <input type="text" placeholder="Название ракеты" th:field="*{missileCode}">
+        </td>
+        <td>Тип ракеты:<br> <!--Тип ракеты (выбираем из списка, кот-й описан в классе enum MissileType)-->
+            <select th:field="*{missileType}">
+                <option value="BALLISTIKA">Баллистика</option>
+                <option value="ZENIT">Зенитная ракета</option>
+                <option value="KRYLAT">Крылатая ракета</option>
+            </select>
+        </td>
+    </tr>
+
+    <tr> <!--2-я строка, 3 пункта-->
+        <td>Мин. дальность стрельбы, км:<br>  <!--Мин. дальность стрельбы, км-->
+            <input type="number" placeholder="Мин. дальность стрельбы, км" th:field="*{missileRangeMin}">
+        </td>
+        <td>Макс. дальность стрельбы, км:<br>  <!--Макс. дальность стрельбы, км-->
+            <input type="number" placeholder="Макс. дальность стрельбы, км" th:field="*{missileRangeMax}">
+        </td>
+        <td>Маршевая скорость полета, м/с:<br> <!--Маршевая скорость полета, м/с-->
+            <input type="number" placeholder="Маршевая скорость полета, м/с" th:field="*{missileSpeed}">
+        </td>
+    </tr>
+
+    <tr> <!--3-я строка, 3 пункта-->
+        <td>Высота полета, м:<br>  <!--Высота полета, м-->
+            <input type="number" placeholder="Высота полета, м" th:field="*{missileAltitude}">
+        </td>
+        <td>Масса боевой части, кг:<br>  <!--Масса боевой части, кг-->
+            <input type="number" placeholder="Масса боевой части, кг" th:field="*{missileMass}">
+        </td>
+        <td>Тип системы наведения:<br> <!--Тип системы наведения (выбираем из списка, кот-й описан в классе enum GuidanceType)-->
+            <select th:field="*{guidanceType}">
+                <option value="RADIOLOKATOR">Радиолокатор</option>
+                <option value="TEPLOVIZOR">Тепловизор</option>
+                <option value="OPTIKA">Оптика</option>
+                <option value="TELEUPRAVLENYE">Телеуправление</option>
+                <option value="AVTONOMNO">Автономное упр-е</option>
+            </select>
+        </td>
+    </tr>
+
+    <tr> <!--4-я строка, 3 пункта-->
+        <!--<td>Загрузите изображение ракеты:<br>--> <!--изображение ракеты-->
+            <!--<input type="file" placeholder="изображ. ракеты" accept="image/*,image/jpeg,image/png,image/gif" th:field="*{missileImage}" />-->
+        <td>Добавить образец:<br>       <!--Добавить образец-->
+            <button type="submit">Добавить</button>
+        </td>
+        <td>Сбросить:<br>  <!--Сбросить-->
+            <button type="reset">Очистить</button>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+</form>
+
+</body>
+</html>

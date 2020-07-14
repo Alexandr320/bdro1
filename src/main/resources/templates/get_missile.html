@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Нахождение ракеты</title>
+</head>
+<body>
+<th:block th:insert="index::header"></th:block>
+<h3 align="center">Найти ракету по запросу</h3>
+
+<table th:object="${missileForm}">
+    <tbody align="center">
+
+    <tr> <!--1-я строка, 3 пункта-->
+        <td>Название комплекса:<br>  <!--Название комплекса-->
+            <div th:text="*{missileName}">...</div>
+        </td>
+        <td>Название ракеты:<br>     <!--Название ракеты-->
+            <div th:text="*{missileCode}">...</div>
+        </td>
+        <td>Тип ракеты:<br> <!--Тип ракеты (выбираем из списка, кот-й описан в классе enum MissileType)-->
+            <div th:text="#{'enum.MissileType.__*{missileType}__'}">...</div>
+        </td>
+    </tr>
+
+    <tr> <!--2-я строка, 3 пункта-->
+        <td>Мин. дальность стрельбы, км:<br>  <!--Мин. дальность стрельбы, км-->
+            <div th:text="*{missileRangeMin}">...</div>
+        </td>
+        <td>Макс. дальность стрельбы, км:<br>  <!--Макс. дальность стрельбы, км-->
+            <div th:text="*{missileRangeMax}">...</div>
+        </td>
+        <td>Маршевая скорость полета, м/с:<br> <!--Маршевая скорость полета, м/с-->
+            <div th:text="*{missileSpeed}">...</div>
+        </td>
+    </tr>
+
+    <tr> <!--3-я строка, 3 пункта-->
+        <td>Высота полета, м:<br>  <!--Высота полета, м-->
+            <div th:text="*{missileAltitude}"></div>
+        </td>
+        <td>Масса боевой части, кг:<br>  <!--Масса боевой части, кг-->
+            <div th:text="*{missileMass}"></div>
+        </td>
+        <!--Тип системы наведения (выбираем из списка, кот-й описан в классе enum GuidanceType)-->
+        <td>Тип системы наведения:<br>
+            <div th:text="#{'enum.GuidanceType.__*{guidanceType}__'}">...</div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

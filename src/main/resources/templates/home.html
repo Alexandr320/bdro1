@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <style>
+        .table-missile td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<th:block th:insert="index::header"></th:block>
+<h3 align="center">Главная страница</h3>
+
+<table border="0" class="m10 table-missile table table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Название комплекса</th>
+        <th>Название ракеты</th>
+        <th>Тип ракеты</th>
+        <th>Дальность стрельбы мин., км</th>
+        <th>Дальность стрельбы макс., км</th>
+        <th>Скорость полета маршевая, м/с</th>
+        <th>Высота полета, м</th>
+        <th>Масса боевой части, кг</th>
+        <th>Тип системы наведения</th>
+        <th>Действия</th>
+    </tr>
+    <tr th:each="missileForm : ${missileFormList}" th:object="${missileForm}">
+        <td><a th:href="@{'/missile/get/__*{id}__'}" th:text="*{id}">...</a></td>
+        <td th:text="*{missileName}">...</td>
+        <td th:text="*{missileCode}">...</td>
+        <td th:text="#{'enum.MissileType.__*{missileType}__'}">...</td>
+        <td th:text="*{missileRangeMin}">...</td>
+        <td th:text="*{missileRangeMax}">...</td>
+        <td th:text="*{missileSpeed}">...</td>
+        <td th:text="*{missileAltitude}">...</td>
+        <td th:text="*{missileMass}">...</td>
+        <td th:text="#{'enum.GuidanceType.__*{guidanceType}__'}">...</td>
+        <td><a th:href="@{'/missile/delete/__*{id}__'}" class="btn btn-danger">Удалить</a></td>
+    </tr>
+</table>
+
+</body>
+</html>
