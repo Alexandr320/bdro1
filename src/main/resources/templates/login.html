@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:margin-left="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>Вход в базу данных</title>
+</head>
+<body>
+
+
+<h3 align="center">Вход в базу данных</h3><br><br>
+
+<div th:if="${param.error}">
+    Invalid username and password.
+</div>
+<div th:if="${param.logout}">
+    You have been logged out.
+</div>
+<form th:action="@{/login}" method="post" align="center">
+    <div ><label>Логин: <input type="text" name="username"/> </label></div>
+    <div><label>Пароль: <input type="password" name="password"/> </label></div>
+    <div><input type="submit" value="Войти" class="btn btn-primary"/></div><br>
+
+    <a href="/registration">Не имеете аккаунта? Зарегистрироватья</a><br>
+
+</form>
+</body>
+</html>

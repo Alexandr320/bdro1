@@ -1,13 +1,13 @@
-package ru.ifmo.BDRO.controller;
+package ru.ifmo.bdro1.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.ifmo.BDRO.service.MissileService;
-import ru.ifmo.BDRO.exception.MissileNotFountException;
-import ru.ifmo.BDRO.form.MissileForm;
+import ru.ifmo.bdro1.service.MissileService;
+import ru.ifmo.bdro1.exception.MissileNotFountException;
+import ru.ifmo.bdro1.form.MissileForm;
 
 @Controller
 @RequestMapping("/missile")

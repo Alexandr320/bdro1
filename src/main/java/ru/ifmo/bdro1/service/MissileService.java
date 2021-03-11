@@ -1,13 +1,13 @@
-package ru.ifmo.BDRO.service;
+package ru.ifmo.bdro1.service;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.ifmo.BDRO.entity.Missile;
-import ru.ifmo.BDRO.exception.MissileNotFountException;
-import ru.ifmo.BDRO.form.MissileForm;
-import ru.ifmo.BDRO.repository.MissileRepository;
+import ru.ifmo.bdro1.entity.Missile;
+import ru.ifmo.bdro1.exception.MissileNotFountException;
+import ru.ifmo.bdro1.form.MissileForm;
+import ru.ifmo.bdro1.repository.MissileRepository;
 
 import java.util.ArrayList;
 import java.util.List;

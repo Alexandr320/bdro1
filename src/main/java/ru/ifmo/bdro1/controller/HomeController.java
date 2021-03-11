@@ -1,4 +1,4 @@
-package ru.ifmo.BDRO.controller;
+package ru.ifmo.bdro1.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

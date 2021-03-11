@@ -1,7 +1,7 @@
-package ru.ifmo.BDRO.repository;
+package ru.ifmo.bdro1.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.ifmo.BDRO.entity.Missile;
+import ru.ifmo.bdro1.entity.Missile;
 
 import java.util.Optional;
 

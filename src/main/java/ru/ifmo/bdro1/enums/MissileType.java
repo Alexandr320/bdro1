@@ -1,4 +1,4 @@
-package ru.ifmo.BDRO.enums;
+package ru.ifmo.bdro1.enums;
 
 public enum MissileType {
     BALLISTIKA,
