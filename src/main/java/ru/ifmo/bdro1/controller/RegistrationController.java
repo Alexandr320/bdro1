@@ -1,6 +1,7 @@
 package ru.ifmo.bdro1.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,11 +22,13 @@ public class RegistrationController {
     private PasswordEncoder passwordEncoder;
 
     @GetMapping("/registration")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String registration() {
         return "registration";
     }
 
     @PostMapping("/registration")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String addUser(User user, Map<String, Object> model) {
         User userFromDb = userRepo.findByUsername(user.getUsername());
 
